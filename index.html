@@ -9,29 +9,34 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
     rel="stylesheet"
   />
-  <script
-    src="https://kit.fontawesome.com/a81368914c.js"
-    crossorigin="anonymous"
-  ></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
   <header class="navbar">
     <div class="container">
-      <div class="logo">Muhammed Arda Sarı</div>
+      <div class="logo">
+        <div class="lang-flags">
+           <img src="https://flagcdn.com/w40/tr.png" data-lang="tr" class="flag-btn active" title="Türkçe" alt="TR">
+           <img src="https://flagcdn.com/w40/gb.png" data-lang="en" class="flag-btn" title="English" alt="EN">
+           <img src="https://flagcdn.com/w40/de.png" data-lang="de" class="flag-btn" title="Deutsch" alt="DE">
+           <img src="https://flagcdn.com/w40/fr.png" data-lang="fr" class="flag-btn" title="Français" alt="FR">
+           <img src="https://flagcdn.com/w40/es.png" data-lang="es" class="flag-btn" title="Español" alt="ES">
+        </div>
+      </div>
       <nav>
         <ul>
-          <li><a href="#hero">Anasayfa</a></li>
-          <li><a href="#about">Hakkımda</a></li>
-          <li><a href="#konular">Teknik Yetkinlikler</a></li>
-          <li><a href="#calismalarim">Çalışmalarım</a></li>
-          <li><a href="#contact">İletişim</a></li>
+          <li><a href="#hero" data-translate="nav_home">Anasayfa</a></li>
+          <li><a href="#about" data-translate="nav_about">Hakkımda</a></li>
+          <li><a href="#konular" data-translate="nav_skills">Teknik Yetkinlikler</a></li>
+          <li><a href="#calismalarim" data-translate="nav_works">Çalışmalarım</a></li>
+          <li><a href="#contact" data-translate="nav_contact">İletişim</a></li>
           <li class="linkedin-nav">
-            <i class="fab fa-linkedin-in"></i>
             <a
               href="https://www.linkedin.com/in/muhammed-arda-sarı-009554335"
               target="_blank"
+              aria-label="LinkedIn Profilim"
             >
-              LinkedIn
+              <i class="fab fa-linkedin fa-2x"></i>
             </a>
           </li>
         </ul>
@@ -49,17 +54,18 @@
           class="profile-img"
         />
       </div>
-      <h1 class="reveal delay-1">Muhammed Arda Sarı</h1>
-      <p class="reveal delay-2">
+      <h1 class="reveal delay-1" data-translate="hero_name">Muhammed Arda Sarı</h1>
+      <p class="reveal delay-2" data-translate="hero_subtitle">
         Sakarya Uygulamalı Bilimler Üniversitesi<br />
         İmalat Yürütme Sistemleri Operatörlüğü
       </p>
       <div class="hero-buttons reveal delay-3">
-        <a href="cv/CV.pdf" class="btn">CV İndir</a>
+        <a href="cv/CV.pdf" class="btn" data-translate="btn_cv">CV İndir</a>
         <a
           href="https://mail.google.com/mail/?view=cm&fs=1&to=sarimuhammedarda52@gmail.com"
           target="_blank"
           class="btn btn-outline"
+          data-translate="btn_contact"
         >
           Bana Ulaşın
         </a>
@@ -74,12 +80,12 @@
     <div class="container">
       <div class="about-inner">
         <div class="about-text reveal">
-          <h2>Hakkımda</h2>
+          <h2 data-translate="about_title">Hakkımda</h2>
           <hr />
-          <p>
+          <p id="about-text">
             Merhaba, ben <strong>Muhammed Arda Sarı</strong>.<br />
 Sakarya Uygulamalı Bilimler Üniversitesi, İmalat Yürütme Sistemleri Operatörlüğü 2. sınıf öğrencisiyim. Teorik ve pratik eğitimlerim sayesinde; üretim hatları yönetimi, operasyonel verimlilik ve süreç optimizasyonu konularında güçlü bir altyapı oluşturdum.
-Modern üretim yaklaşımlarına odaklanarak, özellikle Endüstri 4.0 ve akıllı fabrika ortamlarında çalışmaya hazırım. Otomasyon süreçleri, SCADA sistemleri ve üretim denetleme konularındaki teknik bilgimi; C ve Python ile destekliyor, Java ile aktif olarak geliştiriyorum. Kestirimci Bakım (Predictive Maintenance) alanındaki yetkinliğimle, teknoloji yoğun üretim süreçlerine anında değer katmayı hedefliyorum.
+Modern üretim yaklaşımlarına odaklanarak, özellikle Endüstri 4.0 ve akıllı fabrika ortamlarında çalışmaya hazırım. Otomasyon süreçleri, SCADA sistemleri ve üretim denetleme konularındaki teknik bilgimi; C ve Python ile destekliyor, Java ile aktif olarak geliştiriyorum. Kestirimci Bakım (Predictive Maintenance) alanındaki yetkinliğimle, teknoloji yoğun üretim süreçlerine anında değer katmayı hedefliyorum."
           </p>
         </div>
       </div>
@@ -88,69 +94,54 @@ Modern üretim yaklaşımlarına odaklanarak, özellikle Endüstri 4.0 ve akıll
 
   <section id="konular" class="section topics">
     <div class="container">
-      <h2 class="reveal">Teknik Yetkinlikler</h2>
+      <h2 class="reveal" data-translate="skills_title">Teknik Yetkinlikler</h2>
       <hr class="reveal delay-0" />
       
       <div class="topics-grid">
         <div class="topic-card reveal delay-1">
-          <i class="fas fa-hard-hat fa-2x"></i>
-          <p>İş Sağlığı ve Güvenliği</p>
+          <p data-translate="topic_1">İş Sağlığı ve Güvenliği</p>
         </div>
         <div class="topic-card reveal delay-2">
-          <i class="fas fa-industry fa-2x"></i>
-          <p>İmalat Operasyonları Yönetimi</p>
+          <p data-translate="topic_2">İmalat Operasyonları Yönetimi</p>
         </div>
         <div class="topic-card reveal delay-3">
-          <i class="fas fa-code fa-2x"></i>
-          <p>Programlama</p>
+          <p data-translate="topic_3">Programlama</p>
         </div>
         <div class="topic-card reveal delay-4">
-          <i class="fas fa-camera-retro fa-2x"></i>
-          <p>Görüntü İşleme</p>
+          <p data-translate="topic_4">Görüntü İşleme</p>
         </div>
         <div class="topic-card reveal delay-5">
-          <i class="fas fa-tools fa-2x"></i>
-          <p>Kestirimci Bakım-Onarım</p>
+          <p data-translate="topic_5">Kestirimci Bakım-Onarım</p>
         </div>
         <div class="topic-card reveal delay-6">
-          <i class="fas fa-boxes fa-2x"></i>
-          <p>Malzeme ve Stok Yönetimi</p>
+          <p data-translate="topic_6">Malzeme ve Stok Yönetimi</p>
         </div>
         <div class="topic-card reveal delay-7">
-          <i class="fas fa-robot fa-2x"></i>
-          <p>Robotik Süreç Otomasyonu</p>
+          <p data-translate="topic_7">Robotik Süreç Otomasyonu</p>
         </div>
         <div class="topic-card reveal delay-8">
-          <i class="fas fa-tachometer-alt fa-2x"></i>
-          <p>SCADA</p>
+          <p data-translate="topic_8">SCADA</p>
         </div>
         <div class="topic-card reveal delay-9">
-          <i class="fas fa-brain fa-2x"></i>
-          <p>Yapay Zeka</p>
+          <p data-translate="topic_9">Yapay Zeka</p>
         </div>
         <div class="topic-card reveal delay-10">
-          <i class="fas fa-brain fa-2x"></i>
-          <p>Makine Öğrenmesi</p>
+          <p data-translate="topic_10">Makine Öğrenmesi</p>
         </div>
         <div class="topic-card reveal delay-11">
-          <i class="fas fa-network-wired fa-2x"></i>
-          <p>Sistem Entegrasyonu</p>
+          <p data-translate="topic_11">Sistem Entegrasyonu</p>
         </div>
         <div class="topic-card reveal delay-12">
-          <i class="fas fa-microchip fa-2x"></i>
-          <p>Zeki İmalat Sistemleri</p>
+          <p data-translate="topic_12">Zeki İmalat Sistemleri</p>
         </div>
         <div class="topic-card reveal delay-13">
-          <i class="fas fa-database fa-2x"></i>
-          <p>Veri Toplama ve Analizi</p>
+          <p data-translate="topic_13">Veri Toplama ve Analizi</p>
         </div>
         <div class="topic-card reveal delay-14">
-          <i class="fas fa-server fa-2x"></i>
-          <p>MES Donanımları</p>
+          <p data-translate="topic_14">MES Donanımları</p>
         </div>
         <div class="topic-card reveal delay-15">
-          <i class="fas fa-ruler-combined fa-2x"></i>
-          <p>MES Standartları</p>
+          <p data-translate="topic_15">MES Standartları</p>
         </div>
       </div>
     </div>
@@ -158,60 +149,72 @@ Modern üretim yaklaşımlarına odaklanarak, özellikle Endüstri 4.0 ve akıll
 
   <section id="calismalarim" class="section works">
     <div class="container">
-      <h2 class="reveal">Çalışmalarım</h2>
+      <h2 class="reveal" data-translate="works_title">Çalışmalarım</h2>
       <hr class="reveal delay-0" />
       <div class="works-grid">
         <div class="work-card reveal delay-1">
           <h3>ENDÜSTRİYEL İLETİŞİM PROTOKOLÜ HİYERARŞİSİ</h3>
-          <a href="calismalarim/ENDÜSTRİYEL İLETİŞİM PROTOKOLÜ HİYERARŞİSİ.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/ENDÜSTRİYEL İLETİŞİM PROTOKOLÜ HİYERARŞİSİ.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-2">
           <h3>Görüntü İşleme Teknikleri Kullanılarak Yapılmış Güvenlik Çalışmaları</h3>
-          <a href="calismalarim/Görüntü İşleme Teknikleri Kullanılarak Yapılmış Güvenlik Çalışmaları.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/Görüntü İşleme Teknikleri Kullanılarak Yapılmış Güvenlik Çalışmaları.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-3">
           <h3>İş Analizi</h3>
-          <a href="calismalarim/İş Analizi.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/İş Analizi.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-4">
           <h3>Manufacturing Execution Systems</h3>
-          <a href="calismalarim/Manufacturing Execution Systems.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/Manufacturing Execution Systems.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-5">
           <h3>Profilbus & Profilnet</h3>
-          <a href="calismalarim/Profilbus & Profilnet.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/Profilbus & Profilnet.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-6">
           <h3>Rastgele Orman Algoritması</h3>
-          <a href="calismalarim/Rastgele Orman Algoritması.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/Rastgele Orman Algoritması.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-7">
           <h3>ROBOTİK SÜREÇ OTOMASYONU PROJE</h3>
-          <a href="calismalarim/ROBOTİK SÜREÇ OTOMASYONU PROJE.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/ROBOTİK SÜREÇ OTOMASYONU PROJE.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-8">
           <h3>TAM ZAMANINDA ÜRETİM</h3>
-          <a href="calismalarim/TAM ZAMANINDA ÜRETİM.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/TAM ZAMANINDA ÜRETİM.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-9">
           <h3>ENDÜSTRİYEL ROBOTLAR</h3>
-          <a href="calismalarim/Endüstriyel Robotlar.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/Endüstriyel Robotlar.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-10">
           <h3>ÜRETİM SİSTEMLERİNDE YAZILIM ENTEGRASYONU</h3>
-          <a href="calismalarim/ÜRETİM SİSTEMLERİNDE YAZILIM ENTEGRASYONU.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/ÜRETİM SİSTEMLERİNDE YAZILIM ENTEGRASYONU.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-11">
           <h3>Bankacılık ve Sigortacılık Sektöründe Sistem Entegrasyonu</h3>
-          <a href="calismalarim/Bankacılık ve Sigortacılık Sektöründe Sistem Entegrasyonu.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/Bankacılık ve Sigortacılık Sektöründe Sistem Entegrasyonu.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-12">
           <h3>ALÜMİNYUM ENJEKSİYON KALIPLAMA SEKTÖRÜNDE MES UYGULAMASI</h3>
-          <a href="calismalarim/ALÜMİNYUM ENJEKSİYON KALIPLAMA SEKTÖRÜNDE ÜRETİM YÜRÜTME SİSTEMİNİN UYGULANMASI.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/ALÜMİNYUM ENJEKSİYON KALIPLAMA SEKTÖRÜNDE ÜRETİM YÜRÜTME SİSTEMİNİN UYGULANMASI.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
         <div class="work-card reveal delay-13">
           <h3>İmalat Yürütme Sistemleri Operatörlüğü</h3>
-          <a href="calismalarim/İmalat Yürütme Sistemleri Operatörlüğü.pdf" target="_blank" class="work-btn">Dosyayı Aç</a>
+          <a href="calismalarim/İmalat Yürütme Sistemleri Operatörlüğü.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
+        </div>
+        <div class="work-card reveal delay-1">
+          <h3>Derin öğrenme ve Görüntü İşleme Tabanlı Görsel Kalite Kontrol Sistemlerinde Kullanılan Kusur Tespit Yöntemleri</h3>
+          <a href="calismalarim/Derin öğrenme ve Görüntü İşleme Tabanlı Görsel Kalite Kontrol Sistemlerinde Kullanılan Kusur Tespit Yöntemleri.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
+        </div>
+        <div class="work-card reveal delay-2">
+          <h3>ÜRETİMDE KULLANILAN HMI PANELLERİN GÖREVLERİ ve MES SİSTEMLERİYLE ETKİLEŞİMİ</h3>
+          <a href="calismalarim/ÜRETİMDE KULLANILAN HMI PANELLERİN GÖREVLERİ ve MES SİSTEMLERİYLE ETKİLEŞİMİ.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
+        </div>
+        <div class="work-card reveal delay-3">
+          <h3>Sistem Ekipman ve Performans Analizi</h3>
+          <a href="calismalarim/Sistem Ekipman ve Performans Analizi.pdf" target="_blank" class="work-btn" data-translate="btn_open">Dosyayı Aç</a>
         </div>
       </div>
     </div>
@@ -219,7 +222,7 @@ Modern üretim yaklaşımlarına odaklanarak, özellikle Endüstri 4.0 ve akıll
 
   <section id="contact" class="section contact">
     <div class="container">
-      <h2 class="reveal">İletişim</h2>
+      <h2 class="reveal" data-translate="contact_title">İletişim</h2>
       <hr class="reveal delay-0" />
       <div class="contact-inner">
         <div class="contact-details reveal delay-1">
@@ -242,11 +245,10 @@ Modern üretim yaklaşımlarına odaklanarak, özellikle Endüstri 4.0 ve akıll
 
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Muhammed Arda Sarı. Tüm hakları saklıdır.</p>
+      <p data-translate="footer_text">© 2025 Muhammed Arda Sarı. Tüm hakları saklıdır.</p>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
