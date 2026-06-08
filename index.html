@@ -5,16 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Muhammed Arda Sarı | Portfolyo</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
-  
+
+  <div class="ambient-glow"></div>
+
   <header class="navbar">
     <div class="container nav-container">
       <div class="lang-flags">
-         <img src="https://flagcdn.com/w40/tr.png" data-lang="tr" class="flag-btn active" alt="TR">
-         <img src="https://flagcdn.com/w40/gb.png" data-lang="en" class="flag-btn" alt="EN">
+         <img src="https://flagcdn.com/w40/tr.png" data-lang="tr" class="flag-btn active" title="Türkçe" alt="TR">
+         <img src="https://flagcdn.com/w40/gb.png" data-lang="en" class="flag-btn" title="English" alt="EN">
+         <img src="https://flagcdn.com/w40/de.png" data-lang="de" class="flag-btn" title="Deutsch" alt="DE">
+         <img src="https://flagcdn.com/w40/fr.png" data-lang="fr" class="flag-btn" title="Français" alt="FR">
+         <img src="https://flagcdn.com/w40/es.png" data-lang="es" class="flag-btn" title="Español" alt="ES">
       </div>
       <nav>
         <ul>
@@ -23,8 +28,8 @@
           <li><a href="#deneyim" data-translate="nav_experience">Deneyim</a></li>
           <li><a href="#konular" data-translate="nav_skills">Yetkinlikler</a></li>
           <li><a href="#calismalarim" data-translate="nav_works">Çalışmalarım</a></li>
-          <li class="social-link">
-            <a href="https://www.linkedin.com/in/muhammed-arda-sarı-009554335" target="_blank">
+          <li class="linkedin-nav">
+            <a href="https://www.linkedin.com/in/muhammed-arda-sarı-009554335" target="_blank" aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
           </li>
@@ -35,43 +40,50 @@
   
   <section id="hero" class="hero">
     <div class="container hero-container">
-      <img src="pp/Muhammed_Arda_Sari.png" alt="Muhammed Arda Sarı" class="profile-img fade-up" />
-      <h1 class="fade-up delay-1" data-translate="hero_name">Muhammed Arda Sarı</h1>
-      <p class="hero-subtitle fade-up delay-2" data-translate="hero_subtitle">
-        İmalat Yürütme Sistemleri Operatörlüğü & IT Entegrasyonu
+      <div class="profile-wrapper init-fade">
+        <img src="pp/Muhammed_Arda_Sari.png" alt="Muhammed Arda Sarı" class="profile-img" />
+        <div class="profile-pulse"></div>
+      </div>
+      <h1 class="init-fade delay-1" data-translate="hero_name">Muhammed Arda Sarı</h1>
+      <p class="hero-subtitle init-fade delay-2" data-translate="hero_subtitle">
+        İmalat Yürütme Sistemleri Operatörlüğü
       </p>
-      <div class="hero-buttons fade-up delay-3">
-        <a href="cv/CV.pdf" target="_blank" class="btn btn-primary" data-translate="btn_cv">CV İndir</a>
-        <a href="#contact" class="btn btn-secondary" data-translate="btn_contact">Bana Ulaşın</a>
+      <div class="hero-buttons init-fade delay-3">
+        <a href="cv/CV.pdf" target="_blank" class="btn btn-premium" data-translate="btn_cv">CV İndir</a>
+        <a href="#contact" class="btn btn-outline" data-translate="btn_contact">Bana Ulaşın</a>
       </div>
     </div>
   </section>
 
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title fade-up" data-translate="about_title">Hakkımda</h2>
-      <div class="about-content fade-up delay-1">
+      <h2 class="section-title reveal" data-translate="about_title">Hakkımda</h2>
+      <div class="about-card reveal delay-1">
         <p id="about-text">
-          İmalat Yürütme Sistemleri alanında, saha operasyonları ve IT entegrasyonu konusunda uzmanlaşan bir adayım. Mekanik bakım deneyimimi <strong>SQL ve Python</strong> ile veri analizine dönüştürüyor; kestirimci bakım ve SCADA süreçleriyle üretim kayıplarını minimize etmeyi hedefliyorum. Aynı zamanda Türkiye'de bir ilk olan <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="text-link">Üretimin Geleceği Topluluğu'nun (FOT-M)</a> kurucusu olarak, sektörel yeniliklere liderlik etme vizyonuna sahibim.
+          İmalat Yürütme Sistemleri alanında, saha operasyonları ve IT entegrasyonu konusunda uzmanlaşan bir adayım. Mekanik bakım deneyimimi <strong>SQL ve Python</strong> ile veri analizine dönüştürüyor; kestirimci bakım ve SCADA süreçleriyle üretim kayıplarını minimize etmeyi hedefliyorum. Aynı zamanda Türkiye'de bir ilk olan <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="premium-link">Üretimin Geleceği Topluluğu'nun (FOT-M)</a> kurucusu olarak, sektörel yeniliklere liderlik etme vizyonuna sahibim.
         </p>
       </div>
     </div>
   </section>
 
-  <section id="deneyim" class="section bg-light">
+  <section id="deneyim" class="section">
     <div class="container">
-      <h2 class="section-title fade-up" data-translate="exp_title">Deneyim</h2>
-      <div class="timeline">
-        <div class="timeline-item fade-up delay-1">
-          <div class="timeline-date" data-translate="exp_1_date">Şubat 2026 - Haziran 2026</div>
-          <div class="timeline-content">
+      <h2 class="section-title reveal" data-translate="exp_title">Deneyim</h2>
+      <div class="modern-timeline">
+        <div class="timeline-card reveal delay-1">
+          <div class="time-meta">
+            <span class="badge" data-translate="exp_1_date">Şubat 2026 - Haziran 2026</span>
+          </div>
+          <div class="time-body">
             <h3 data-translate="exp_1_title">Kadifeteks | Bilgi Teknolojileri Stajyeri</h3>
-            <p data-translate="exp_1_desc">İmalat Yürütme Sistemleri (MES) üzerinden üretim verilerinin anlık takibi. Endüstriyel el terminallerinin ağ sorunlarının çözümü ve PLC sistem mimarisinin saha uygulamaları.</p>
+            <p data-translate="exp_1_desc">İmalat Yürütme Sistemleri üzerinden üretim verilerinin anlık takibi. Endüstriyel el terminallerinin ağ sorunlarının çözümü ve PLC sistem mimarisinin saha uygulamaları.</p>
           </div>
         </div>
-        <div class="timeline-item fade-up delay-2">
-          <div class="timeline-date" data-translate="exp_2_date">Ağustos 2025 - Eylül 2025</div>
-          <div class="timeline-content">
+        <div class="timeline-card reveal delay-2">
+          <div class="time-meta">
+            <span class="badge" data-translate="exp_2_date">Ağustos 2025 - Eylül 2025</span>
+          </div>
+          <div class="time-body">
             <h3 data-translate="exp_2_title">Plastsonik Makina | Stajyer</h3>
             <p data-translate="exp_2_desc">HF makinelerin mekanik montajı ve elektrik pano kablolaması. Saha makinelerinin periyodik bakımı, sensör testleri ve devreye alma operasyonları.</p>
           </div>
@@ -82,61 +94,120 @@
 
   <section id="konular" class="section">
     <div class="container">
-      <h2 class="section-title fade-up" data-translate="skills_title">Yetkinlikler</h2>
-      <div class="grid-container">
-        <div class="card fade-up" data-translate="topic_1">Python, Java, C, SQL</div>
-        <div class="card fade-up delay-1" data-translate="topic_2">Kestirimci Bakım-Onarım</div>
-        <div class="card fade-up delay-2" data-translate="topic_3">SCADA & MES Sistemleri</div>
-        <div class="card fade-up delay-3" data-translate="topic_4">Endüstriyel Ağ Protokolleri</div>
-        <div class="card fade-up delay-1" data-translate="topic_5">Görüntü İşleme</div>
-        <div class="card fade-up delay-2" data-translate="topic_6">Robotik Süreç Otomasyonu</div>
-        <div class="card fade-up delay-3" data-translate="topic_7">Yapay Zeka & Makine Öğrenmesi</div>
-        <div class="card fade-up delay-4" data-translate="topic_8">Elektrik Pano & PLC</div>
+      <h2 class="section-title reveal" data-translate="skills_title">Yetkinlikler</h2>
+      <div class="skills-grid">
+        <div class="skill-tag reveal delay-1" data-translate="topic_1">Python, Java, C, SQL</div>
+        <div class="skill-tag reveal delay-2" data-translate="topic_2">Kestirimci Bakım-Onarım</div>
+        <div class="skill-tag reveal delay-3" data-translate="topic_3">SCADA & MES Sistemleri</div>
+        <div class="skill-tag reveal delay-4" data-translate="topic_4">Endüstriyel Ağ Protokolleri</div>
+        <div class="skill-tag reveal delay-1" data-translate="topic_5">Görüntü İşleme</div>
+        <div class="skill-tag reveal delay-2" data-translate="topic_6">Robotik Süreç Otomasyonu</div>
+        <div class="skill-tag reveal delay-3" data-translate="topic_7">Yapay Zeka & Makine Öğrenmesi</div>
+        <div class="skill-tag reveal delay-4" data-translate="topic_8">Elektrik Pano & PLC</div>
       </div>
     </div>
   </section>
 
-  <section id="calismalarim" class="section bg-light">
+  <section id="calismalarim" class="section">
     <div class="container">
-      <h2 class="section-title fade-up" data-translate="works_title">Çalışmalarım</h2>
-      <div class="works-grid">
-        <a href="calismalarim/endustriyel-iletisim-protokolu-hiyerarsisi.pdf" target="_blank" class="work-card fade-up">
-          <h3>Endüstriyel İletişim Protokolü Hiyerarşisi</h3>
-          <span class="work-link" data-translate="btn_open">İncele &rarr;</span>
-        </a>
-        <a href="calismalarim/goruntu-isleme-teknikleri-kullanilarak-yapilmis-guvenlik-calismalari.pdf" target="_blank" class="work-card fade-up delay-1">
-          <h3>Görüntü İşleme İle Güvenlik Çalışmaları</h3>
-          <span class="work-link" data-translate="btn_open">İncele &rarr;</span>
-        </a>
-        <a href="calismalarim/uretim-sistemlerinde-yazilim-entegrasyonu.pdf" target="_blank" class="work-card fade-up delay-2">
-          <h3>Üretim Sistemlerinde Yazılım Entegrasyonu</h3>
-          <span class="work-link" data-translate="btn_open">İncele &rarr;</span>
-        </a>
-        <a href="calismalarim/aluminyum-enjeksiyon-kaliplama-sektorunde-uretim-yurutme-sisteminin-uygulanmasi.pdf" target="_blank" class="work-card fade-up delay-3">
-          <h3>Alüminyum Enjeksiyon MES Uygulaması</h3>
-          <span class="work-link" data-translate="btn_open">İncele &rarr;</span>
-        </a>
-        <a href="calismalarim/robotik-surec-otomasyonu-proje.pdf" target="_blank" class="work-card fade-up delay-1">
-          <h3>Robotik Süreç Otomasyonu Projesi</h3>
-          <span class="work-link" data-translate="btn_open">İncele &rarr;</span>
-        </a>
-        <a href="calismalarim/imalat-yurutme-sistemleri-operatorlugu.pdf" target="_blank" class="work-card fade-up delay-2">
+      <h2 class="section-title reveal" data-translate="works_title">Çalışmalarım</h2>
+      <div class="works-dashboard">
+        
+        <div class="work-node reveal delay-1">
+          <h3>ENDÜSTRİYEL İLETİŞİM PROTOKÖLÜ HİYERARŞİSİ</h3>
+          <a href="calismalarim/ENDÜSTRİYEL İLETİŞİM PROTOKOLÜ HİYERARŞİSİ.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-2">
+          <h3>Görüntü İşleme Teknikleri Kullanılarak Yapılmış Güvenlik Çalışmaları</h3>
+          <a href="calismalarim/Görüntü İşleme Teknikleri Kullanılarak Yapılmış Güvenlik Çalışmaları.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-3">
+          <h3>İş Analizi</h3>
+          <a href="calismalarim/İş Analizi.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-4">
+          <h3>Manufacturing Execution Systems</h3>
+          <a href="calismalarim/Manufacturing Execution Systems.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-1">
+          <h3>Profilbus & Profilnet</h3>
+          <a href="calismalarim/Profilbus.Profilnet.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-2">
+          <h3>Rastgele Orman Algoritması</h3>
+          <a href="calismalarim/Rastgele Orman Algoritması.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-3">
+          <h3>ROBOTİK SÜREÇ OTOMASYONU</h3>
+          <a href="calismalarim/ROBOTİK SÜREÇ OTOMASYONU PROJE.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-4">
+          <h3>TAM ZAMANINDA ÜRETİM</h3>
+          <a href="calismalarim/TAM ZAMANINDA ÜRETİM.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-1">
+          <h3>ENDÜSTRİYEL ROBOTLAR</h3>
+          <a href="calismalarim/Endüstriyel Robotlar.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-2">
+          <h3>ÜRETİM SİSTEMLERİNDE YAZILIM ENTEGRASYONU</h3>
+          <a href="calismalarim/ÜRETİM SİSTEMLERİNDE YAZILIM ENTEGRASYONU.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-3">
+          <h3>Bankacılık ve Sigortacılık Sektöründe Sistem Entegrasyonu</h3>
+          <a href="calismalarim/Bankacılık ve Sigortacılık Sektöründe Sistem Entegrasyonu.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-4">
+          <h3>ALÜMİNYUM ENJEKSİYON KALIPLAMA SEKTÖRÜNDE MES UYGULAMASI</h3>
+          <a href="calismalarim/ALÜMİNYUM ENJEKSİYON KALIPLAMA SEKTÖRÜNDE ÜRETİM YÜRÜTME SİSTEMİNİN UYGULANMASI.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-1">
           <h3>İmalat Yürütme Sistemleri Operatörlüğü</h3>
-          <span class="work-link" data-translate="btn_open">İncele &rarr;</span>
-        </a>
+          <a href="calismalarim/İmalat Yürütme Sistemleri Operatörlüğü.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-2">
+          <h3>Derin öğrenme ve Görüntü İşleme Tabanlı Görsel Kalite Kontrol Sistemlerinde Kullanılan Kusur Tespit Yöntemleri</h3>
+          <a href="calismalarim/Derin öğrenme ve Görüntü İşleme Tabanlı Görsel Kalite Kontrol Sistemlerinde Kullanılan Kusur Tespit Yöntemleri.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-3">
+          <h3>ÜRETİMDE KULLANILAN HMI PANELLERİN GÖREVLERİ ve MES SİSTEMLERİYLE ETKİLEŞİMİ</h3>
+          <a href="calismalarim/ÜRETİMDE KULLANILAN HMI PANELLERİN GÖREVLERİ ve MES SİSTEMLERİYLE ETKİLEŞİMİ.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
+        <div class="work-node reveal delay-4">
+          <h3>Sistem Ekipman ve Performans Analizi</h3>
+          <a href="calismalarim/Sistem Ekipman ve Performans Analizi.pdf" target="_blank" class="node-btn"><span data-translate="btn_open">Dosyayı Aç</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+        </div>
+
       </div>
     </div>
   </section>
 
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-title fade-up" data-translate="contact_title">İletişim</h2>
-      <div class="contact-box fade-up delay-1">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sarimuhammedarda52@gmail.com" target="_blank" class="contact-item">
-          <i class="fas fa-envelope"></i> sarimuhammedarda52@gmail.com
+      <h2 class="section-title reveal" data-translate="contact_title">İletişim</h2>
+      <div class="contact-card reveal delay-1">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sarimuhammedarda52@gmail.com" target="_blank" class="contact-link">
+          <div class="icon-wrap"><i class="fas fa-envelope"></i></div>
+          <span>sarimuhammedarda52@gmail.com</span>
         </a>
-        <a href="https://www.linkedin.com/in/muhammed-arda-sarı-009554335" target="_blank" class="contact-item">
-          <i class="fab fa-linkedin"></i> linkedin.com/in/muhammed-arda-sarı
+        <a href="https://www.linkedin.com/in/muhammed-arda-sarı-009554335" target="_blank" class="contact-link">
+          <div class="icon-wrap"><i class="fab fa-linkedin"></i></div>
+          <span>linkedin.com/in/muhammed-arda-sarı</span>
         </a>
       </div>
     </div>
