@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             works_title: "Çalışmalarım",
             btn_open: "Dosyayı Aç",
             contact_title: "İletişim",
-            footer_text: "© 2025 Muhammed Arda Sarı. Tüm hakları saklıdır."
+            footer_text: "© 2026 Muhammed Arda Sarı. Tüm hakları saklıdır."
         },
         en: {
             nav_home: "Home",
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             works_title: "My Works",
             btn_open: "Open File",
             contact_title: "Contact",
-            footer_text: "© 2025 Muhammed Arda Sarı. All rights reserved."
+            footer_text: "© 2026 Muhammed Arda Sarı. All rights reserved."
         },
         de: {
             nav_home: "Startseite",
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             works_title: "Meine Projekte",
             btn_open: "Datei Öffnen",
             contact_title: "Kontakt",
-            footer_text: "© 2025 Muhammed Arda Sarı. Alle Rechte vorbehalten."
+            footer_text: "© 2026 Muhammed Arda Sarı. Alle Rechte vorbehalten."
         },
         fr: {
             nav_home: "Accueil",
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             works_title: "Mes Travaux",
             btn_open: "Ouvrir le Fichier",
             contact_title: "Contact",
-            footer_text: "© 2025 Muhammed Arda Sarı. Tous droits réservés."
+            footer_text: "© 2026 Muhammed Arda Sarı. Tous droits réservés."
         },
         es: {
             nav_home: "Inicio",
@@ -163,23 +163,19 @@ document.addEventListener('DOMContentLoaded', () => {
             works_title: "Mis Trabajos",
             btn_open: "Abrir Archivo",
             contact_title: "Contacto",
-            footer_text: "© 2025 Muhammed Arda Sarı. Todos los derechos reservados."
+            footer_text: "© 2026 Muhammed Arda Sarı. Todos los derechos reservados."
         }
     };
 
-  
     const flags = document.querySelectorAll('.flag-btn');
 
     flags.forEach(btn => {
         btn.addEventListener('click', () => {
-         
             flags.forEach(f => f.classList.remove('active'));
             btn.classList.add('active');
 
-           
             const lang = btn.getAttribute('data-lang');
 
-      
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
                 if (translations[lang][key]) {
@@ -193,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
 
     const options = {
         threshold: 0.15 
@@ -214,7 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(elem);
     });
 
-
     const heroElems = [
         document.querySelector('.profile-img-wrapper'),
         document.querySelector('.hero-content h1'),
@@ -231,16 +225,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
     const navbar = document.querySelector('.navbar');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            navbar.style.background = 'rgba(11, 15, 25, 0.95)';
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
+            navbar.style.borderBottom = '1px solid rgba(0, 210, 255, 0.2)'; 
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+            navbar.style.background = 'rgba(11, 15, 25, 0.7)';
             navbar.style.boxShadow = 'none';
+            navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.08)';
         }
     });
 });
