@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // TAM TEŞEKKÜLLÜ 5 DİLLİ SÖZLÜK (Tüm Dosyalar ve Deneyimler İçinde)
+    // FOT-M PARANTEZİ KALDIRILMIŞ DİL SÖZLÜĞÜ
     const translations = {
         tr: {
             nav_home: "Anasayfa",
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('[data-translate]').forEach(el => {
                 const key = el.getAttribute('data-translate');
                 if (translations[lang] && translations[lang][key]) {
-                    // Butonların yanındaki ikonları korumak için innerHTML yerine element kontrolü
+                    // İkonları koruma kontrolü
                     if (el.querySelector('i')) {
                         const icon = el.querySelector('i').outerHTML;
                         el.innerHTML = translations[lang][key] + " " + icon;
@@ -159,14 +159,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Sadece Hakkımda Metnini (FOT-M Sürümüyle) Yeniden Yükleme
             const aboutText = document.getElementById('about-text');
-            if (aboutText && translations[lang]['about_text']) {
-                aboutText.innerHTML = translations[lang]['about_text'];
+            if (aboutText) {
+                if (lang === 'tr') {
+                    aboutText.innerHTML = `İmalat Yürütme Sistemleri alanında, saha operasyonları ve IT entegrasyonu konusunda uzmanlaşan bir adayım. Mekanik bakım deneyimimi <strong>SQL ve Python</strong> ile veri analizine dönüştürüyor; kestirimci bakım ve SCADA süreçleriyle üretim kayıplarını minimize etmeyi hedefliyorum. Aynı zamanda Türkiye'de bir ilk olan <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="premium-link">Üretimin Geleceği Topluluğu'nun</a> kurucusu olarak, sektörel yeniliklere liderlik etme vizyonuna sahibim.`;
+                } else if (lang === 'en') {
+                    aboutText.innerHTML = `I am a candidate specializing in field operations and IT integration in Manufacturing Execution Systems. I transform my mechanical maintenance experience into data analysis with <strong>SQL and Python</strong>, aiming to minimize production losses through predictive maintenance and SCADA processes. As the founder of the <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="premium-link">Future of Manufacturing Society</a>, a first in Turkey, I hold the vision of leading sectoral innovations.`;
+                } else if (lang === 'de') {
+                    aboutText.innerHTML = `Ich bin ein Kandidat, der sich auf Feldoperationen und IT-Integration in MES spezialisiert hat. Ich transformiere meine mechanische Wartungserfahrung mit <strong>SQL und Python</strong> in Datenanalysen. Gründer der <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="premium-link">Future of Manufacturing Society</a>.`;
+                } else if (lang === 'fr') {
+                    aboutText.innerHTML = `Candidat spécialisé dans les opérations sur le terrain et l'intégration IT dans les MES. Je transforme mon expérience avec <strong>SQL et Python</strong> en analyse de données. Fondateur de la <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="premium-link">Future of Manufacturing Society</a>.`;
+                } else if (lang === 'es') {
+                    aboutText.innerHTML = `Candidato especializado en operaciones de campo e integración de TI en MES. Transformo mi experiencia de mantenimiento mecánico en análisis de datos con <strong>SQL y Python</strong>. Fundador de la <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="premium-link">Future of Manufacturing Society</a>.`;
+                }
             }
         });
     });
 
-    // Kusursuz Akışkan Sürükleme Animasyonu (Scroll Reveal)
+    // Kusursuz Scroll Reveal Animasyonu
     const options = { threshold: 0.1, rootMargin: "0px 0px -40px 0px" };
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
