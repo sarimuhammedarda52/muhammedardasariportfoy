@@ -1,169 +1,186 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // Siber Daktilo (Typewriter) Efekti
+    const typeText = "İmalat Yürütme Sistemleri Adayı | Yazılım & Otomasyon | FOT-M Kurucusu";
+    const typeElem = document.getElementById('typewriter');
+    let i = 0;
+    
+    function typeWriter() {
+        if (i < typeText.length) {
+            typeElem.innerHTML += typeText.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50); // Yazma hızı (ms)
+        }
+    }
+    // Efekti başlatmak için küçük bir gecikme
+    setTimeout(typeWriter, 1000);
+
+    // Çeviri Sözlüğü (Deneyim ve Topluluk Linki eklendi)
     const translations = {
         tr: {
             nav_home: "Anasayfa",
             nav_about: "Hakkımda",
-            nav_skills: "Teknik Yetkinlikler",
+            nav_experience: "Deneyim",
+            nav_skills: "Yetkinlikler",
             nav_works: "Çalışmalarım",
             nav_contact: "İletişim",
             hero_name: "Muhammed Arda Sarı",
-            hero_subtitle: "Sakarya Uygulamalı Bilimler Üniversitesi<br />İmalat Yürütme Sistemleri Operatörlüğü",
-            btn_cv: "CV İndir",
-            btn_contact: "Bana Ulaşın",
+            btn_cv: "_CV İndir",
+            btn_contact: "_Sisteme Bağlan (İletişim)",
             about_title: "Hakkımda",
-            about_text: `Merhaba, ben <strong>Muhammed Arda Sarı</strong>.<br />Sakarya Uygulamalı Bilimler Üniversitesi, İmalat Yürütme Sistemleri Operatörlüğü 2. sınıf öğrencisiyim. Teorik ve pratik eğitimlerim sayesinde; üretim hatları yönetimi, operasyonel verimlilik ve süreç optimizasyonu konularında güçlü bir altyapı oluşturdum. Modern üretim yaklaşımlarına odaklanarak, özellikle Endüstri 4.0 ve akıllı fabrika ortamlarında çalışmaya hazırım. Otomasyon süreçleri, SCADA sistemleri ve üretim denetleme konularındaki teknik bilgimi; C ve Python ile destekliyor, Java ile aktif olarak geliştiriyorum. Kestirimci Bakım (Predictive Maintenance) alanındaki yetkinliğimle, teknoloji yoğun üretim süreçlerine anında değer katmayı hedefliyorum.`,
-            skills_title: "Teknik Yetkinlikler",
-            topic_1: "İş Sağlığı ve Güvenliği",
-            topic_2: "İmalat Operasyonları Yönetimi",
-            topic_3: "Programlama",
-            topic_4: "Görüntü İşleme",
-            topic_5: "Kestirimci Bakım-Onarım",
-            topic_6: "Malzeme ve Stok Yönetimi",
-            topic_7: "Robotik Süreç Otomasyonu",
-            topic_8: "SCADA",
-            topic_9: "Yapay Zeka",
-            topic_10: "Makine Öğrenmesi",
-            topic_11: "Sistem Entegrasyonu",
-            topic_12: "Zeki İmalat Sistemleri",
-            topic_13: "Veri Toplama ve Analizi",
-            topic_14: "MES Donanımları",
-            topic_15: "MES Standartları",
-            works_title: "Çalışmalarım",
-            btn_open: "Dosyayı Aç",
-            contact_title: "İletişim",
-            footer_text: "© 2026 Muhammed Arda Sarı. Tüm hakları saklıdır."
+            about_text: `İmalat Yürütme Sistemleri alanında, saha operasyonları ve IT entegrasyonu konusunda uzmanlaşan bir adayım. Mekanik bakım deneyimimi <strong>SQL ve Python</strong> ile veri analizine dönüştürüyor; kestirimci bakım ve SCADA süreçleriyle üretim kayıplarını minimize etmeyi hedefliyorum. Aynı zamanda Türkiye'de bir ilk olan <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="cyber-link">Üretimin Geleceği Topluluğu'nun (FOT-M)</a> kurucusu olarak, sektörel yeniliklere liderlik etme vizyonuna sahibim.`,
+            exp_title: "Deneyim",
+            exp_1_title: "Kadifeteks | Stajyer (Bilgi Teknolojileri)",
+            exp_1_date: "Şubat 2026 - Haziran 2026",
+            exp_1_desc: "İmalat Yürütme Sistemleri (MES) üzerinden üretim verilerinin anlık takibi. Endüstriyel el terminallerinin ağ sorunlarının çözümü ve PLC sistem mimarisinin saha uygulamaları.",
+            exp_2_title: "Plastsonik Makina | Stajyer",
+            exp_2_date: "Ağustos 2025 - Eylül 2025",
+            exp_2_desc: "HF makinelerin mekanik montajı, elektrik pano kablolaması. Saha makinelerinin periyodik bakımı, sensör testleri ve devreye alma işlemleri.",
+            skills_title: "Sistem Yetkinlikleri",
+            topic_1: "Python, Java, C, SQL",
+            topic_2: "Kestirimci Bakım-Onarım",
+            topic_3: "SCADA & MES Sistemleri",
+            topic_4: "Endüstriyel Ağ Protokolleri",
+            topic_5: "Görüntü İşleme",
+            topic_6: "Robotik Süreç Otomasyonu",
+            topic_7: "Yapay Zeka & Makine Öğrenmesi",
+            topic_8: "Elektrik Pano & PLC",
+            works_title: "Veritabanı (Çalışmalarım)",
+            btn_open: "[ Dosyayı İncele ]",
+            contact_title: "İletişim Portu",
+            footer_text: "© 2026 Muhammed Arda Sarı. Sistem Aktif."
         },
         en: {
             nav_home: "Home",
             nav_about: "About Me",
-            nav_skills: "Technical Skills",
-            nav_works: "My Works",
+            nav_experience: "Experience",
+            nav_skills: "Skills",
+            nav_works: "Works",
             nav_contact: "Contact",
             hero_name: "Muhammed Arda Sarı",
-            hero_subtitle: "Sakarya University of Applied Sciences<br />Manufacturing Execution Systems (MES) Operator",
-            btn_cv: "Download CV",
-            btn_contact: "Contact Me",
+            btn_cv: "_Download CV",
+            btn_contact: "_Connect (Contact)",
             about_title: "About Me",
-            about_text: `Hello, I am <strong>Muhammed Arda Sarı</strong>.<br />I am a 2nd-year student of Manufacturing Execution Systems at Sakarya University of Applied Sciences. Through theoretical and practical training, I have built a strong foundation in production line management, operational efficiency, and process optimization. Focusing on modern manufacturing approaches, I am ready to work in Industry 4.0 and smart factory environments. I support my technical knowledge in automation processes, SCADA systems, and production supervision with C and Python, and actively develop with Java. With my competence in Predictive Maintenance, I aim to add immediate value to technology-intensive production processes.`,
-            skills_title: "Technical Skills",
-            topic_1: "Occupational Health & Safety",
-            topic_2: "Manufacturing Ops. Management",
-            topic_3: "Programming",
-            topic_4: "Image Processing",
-            topic_5: "Predictive Maintenance",
-            topic_6: "Material & Stock Management",
-            topic_7: "Robotic Process Automation",
-            topic_8: "SCADA",
-            topic_9: "Artificial Intelligence",
-            topic_10: "Machine Learning",
-            topic_11: "System Integration",
-            topic_12: "Smart Manufacturing Systems",
-            topic_13: "Data Collection & Analysis",
-            topic_14: "MES Hardware",
-            topic_15: "MES Standards",
-            works_title: "My Works",
-            btn_open: "Open File",
-            contact_title: "Contact",
-            footer_text: "© 2026 Muhammed Arda Sarı. All rights reserved."
+            about_text: `I am a candidate specializing in field operations and IT integration in Manufacturing Execution Systems. I transform my mechanical maintenance experience into data analysis with <strong>SQL and Python</strong>, aiming to minimize production losses through predictive maintenance and SCADA processes. As the founder of the <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="cyber-link">Future of Manufacturing Society (FOT-M)</a>, a first in Turkey, I hold the vision of leading sectoral innovations.`,
+            exp_title: "Experience",
+            exp_1_title: "Kadifeteks | Intern (IT)",
+            exp_1_date: "Feb 2026 - Jun 2026",
+            exp_1_desc: "Real-time tracking of production data via Manufacturing Execution Systems (MES). Resolving network issues of industrial handheld terminals and field applications of PLC system architecture.",
+            exp_2_title: "Plastsonik Makina | Intern",
+            exp_2_date: "Aug 2025 - Sep 2025",
+            exp_2_desc: "Mechanical assembly of HF machines, electrical panel wiring. Periodic maintenance of field machines, sensor tests, and commissioning.",
+            skills_title: "System Competencies",
+            topic_1: "Python, Java, C, SQL",
+            topic_2: "Predictive Maintenance",
+            topic_3: "SCADA & MES Systems",
+            topic_4: "Industrial Network Protocols",
+            topic_5: "Image Processing",
+            topic_6: "Robotic Process Automation",
+            topic_7: "AI & Machine Learning",
+            topic_8: "Electrical Panels & PLC",
+            works_title: "Database (My Works)",
+            btn_open: "[ Inspect File ]",
+            contact_title: "Communication Port",
+            footer_text: "© 2026 Muhammed Arda Sarı. System Active."
         },
         de: {
             nav_home: "Startseite",
             nav_about: "Über Mich",
-            nav_skills: "Technische Fähigkeiten",
+            nav_experience: "Erfahrung",
+            nav_skills: "Fähigkeiten",
             nav_works: "Projekte",
             nav_contact: "Kontakt",
             hero_name: "Muhammed Arda Sarı",
-            hero_subtitle: "Sakarya Hochschule für Angewandte Wissenschaften<br />Manufacturing Execution Systems (MES) Bediener",
-            btn_cv: "Lebenslauf",
-            btn_contact: "Kontaktieren",
+            btn_cv: "_Lebenslauf",
+            btn_contact: "_Verbinden",
             about_title: "Über Mich",
-            about_text: `Hallo, ich bin <strong>Muhammed Arda Sarı</strong>.<br />Ich studiere im 2. Jahr Manufacturing Execution Systems an der Sakarya Hochschule für Angewandte Wissenschaften. Ich habe eine starke Basis in Produktionslinienmanagement und Prozessoptimierung aufgebaut. Mit Fokus auf moderne Fertigungsansätze bin ich bereit, in Industrie 4.0- und Smart-Factory-Umgebungen zu arbeiten. Ich unterstütze mein technisches Wissen in Automatisierungsprozessen, SCADA-Systemen und Produktionsüberwachung mit C und Python und entwickle aktiv mit Java. Mit meiner Kompetenz in Predictive Maintenance möchte ich technologieintensiven Produktionsprozessen sofortigen Mehrwert bieten.`,
-            skills_title: "Technische Fähigkeiten",
-            topic_1: "Arbeitsschutz",
-            topic_2: "Fertigungsmanagement",
-            topic_3: "Programmierung",
-            topic_4: "Bildverarbeitung",
-            topic_5: "Vorausschauende Wartung",
-            topic_6: "Material- & Bestandsmanagement",
-            topic_7: "Robotergestützte Prozessautomatisierung",
-            topic_8: "SCADA",
-            topic_9: "Künstliche Intelligenz",
-            topic_10: "Maschinelles Lernen",
-            topic_11: "Systemintegration",
-            topic_12: "Intelligente Fertigungssysteme",
-            topic_13: "Datenerfassung & Analyse",
-            topic_14: "MES-Hardware",
-            topic_15: "MES-Standards",
-            works_title: "Meine Projekte",
-            btn_open: "Datei Öffnen",
-            contact_title: "Kontakt",
-            footer_text: "© 2026 Muhammed Arda Sarı. Alle Rechte vorbehalten."
+            about_text: `Ich bin ein Kandidat, der sich auf Feldoperationen und IT-Integration in MES spezialisiert hat. Ich transformiere meine mechanische Wartungserfahrung mit <strong>SQL und Python</strong> in Datenanalysen. Gründer der <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="cyber-link">Future of Manufacturing Society (FOT-M)</a>.`,
+            exp_title: "Erfahrung",
+            exp_1_title: "Kadifeteks | Praktikant (IT)",
+            exp_1_date: "Feb 2026 - Jun 2026",
+            exp_1_desc: "Echtzeit-Verfolgung von Produktionsdaten über MES und SPS-Systemarchitektur.",
+            exp_2_title: "Plastsonik Makina | Praktikant",
+            exp_2_date: "Aug 2025 - Sep 2025",
+            exp_2_desc: "Mechanische Montage und SPS/Schaltschrank-Verkabelung.",
+            skills_title: "Systemkompetenzen",
+            topic_1: "Python, Java, C, SQL",
+            topic_2: "Vorausschauende Wartung",
+            topic_3: "SCADA & MES",
+            topic_4: "Industrielle Netzwerke",
+            topic_5: "Bildverarbeitung",
+            topic_6: "RPA",
+            topic_7: "KI & Maschinelles Lernen",
+            topic_8: "SPS",
+            works_title: "Datenbank (Projekte)",
+            btn_open: "[ Datei Öffnen ]",
+            contact_title: "Kommunikationsport",
+            footer_text: "© 2026 Muhammed Arda Sarı. System Aktiv."
         },
         fr: {
             nav_home: "Accueil",
             nav_about: "À Propos",
-            nav_skills: "Compétences Techniques",
+            nav_experience: "Expérience",
+            nav_skills: "Compétences",
             nav_works: "Travaux",
             nav_contact: "Contact",
             hero_name: "Muhammed Arda Sarı",
-            hero_subtitle: "Université des Sciences Appliquées de Sakarya<br />Opérateur de Systèmes d'Exécution de la Fabrication",
-            btn_cv: "Télécharger CV",
-            btn_contact: "Contactez-moi",
+            btn_cv: "_Télécharger CV",
+            btn_contact: "_Connecter",
             about_title: "À Propos",
-            about_text: `Bonjour, je suis <strong>Muhammed Arda Sarı</strong>.<br />Je suis étudiant en 2ème année en Systèmes d'Exécution de la Fabrication (MES). J'ai acquis une base solide en gestion des lignes de production et optimisation des processus. En me concentrant sur les approches de fabrication modernes, je suis prêt à travailler dans des environnements Industrie 4.0. Je soutiens mes connaissances techniques dans les processus d'automatisation, les systèmes SCADA et la supervision de la production avec C et Python, et je développe activement avec Java. Avec ma compétence en Maintenance Prédictive, je vise à apporter une valeur immédiate aux processus de production à forte intensité technologique.`,
-            skills_title: "Compétences Techniques",
-            topic_1: "Santé et Sécurité",
-            topic_2: "Gestion des Opérations de Fab.",
-            topic_3: "Programmation",
-            topic_4: "Traitement d'Images",
-            topic_5: "Maintenance Prédictive",
-            topic_6: "Gestion des Stocks",
-            topic_7: "Automatisation Robotisée (RPA)",
-            topic_8: "SCADA",
-            topic_9: "Intelligence Artificielle",
-            topic_10: "Apprentissage Automatique",
-            topic_11: "Intégration de Systèmes",
-            topic_12: "Systèmes de Fabrication Intelligents",
-            topic_13: "Collecte et Analyse de Données",
-            topic_14: "Matériel MES",
-            topic_15: "Normes MES",
-            works_title: "Mes Travaux",
-            btn_open: "Ouvrir le Fichier",
-            contact_title: "Contact",
-            footer_text: "© 2026 Muhammed Arda Sarı. Tous droits réservés."
+            about_text: `Candidat spécialisé dans les opérations sur le terrain et l'intégration IT dans les MES. Je transforme mon expérience avec <strong>SQL et Python</strong> en analyse de données. Fondateur de la <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="cyber-link">Future of Manufacturing Society (FOT-M)</a>.`,
+            exp_title: "Expérience",
+            exp_1_title: "Kadifeteks | Stagiaire (IT)",
+            exp_1_date: "Fév 2026 - Juin 2026",
+            exp_1_desc: "Suivi en temps réel des données de production via MES.",
+            exp_2_title: "Plastsonik Makina | Stagiaire",
+            exp_2_date: "Août 2025 - Sep 2025",
+            exp_2_desc: "Assemblage mécanique et câblage d'armoires électriques.",
+            skills_title: "Compétences Système",
+            topic_1: "Python, Java, C, SQL",
+            topic_2: "Maintenance Prédictive",
+            topic_3: "SCADA & MES",
+            topic_4: "Réseaux Industriels",
+            topic_5: "Traitement d'Images",
+            topic_6: "RPA",
+            topic_7: "IA & Machine Learning",
+            topic_8: "Automates",
+            works_title: "Base de données",
+            btn_open: "[ Inspecter ]",
+            contact_title: "Port de Communication",
+            footer_text: "© 2026 Muhammed Arda Sarı. Système Actif."
         },
         es: {
             nav_home: "Inicio",
             nav_about: "Sobre Mí",
-            nav_skills: "Habilidades Técnicas",
+            nav_experience: "Experiencia",
+            nav_skills: "Habilidades",
             nav_works: "Portafolio",
             nav_contact: "Contacto",
             hero_name: "Muhammed Arda Sarı",
-            hero_subtitle: "Universidad de Ciencias Aplicadas de Sakarya<br />Operador de Sistemas de Ejecución de Manufactura",
-            btn_cv: "Descargar CV",
-            btn_contact: "Contáctame",
+            btn_cv: "_Descargar CV",
+            btn_contact: "_Conectar",
             about_title: "Sobre Mí",
-            about_text: `Hola, soy <strong>Muhammed Arda Sarı</strong>.<br />Soy estudiante de segundo año de Sistemas de Ejecución de Manufactura (MES). He construido una base sólida en gestión de líneas de producción y optimización de procesos. Centrándome en enfoques de fabricación modernos, estoy listo para trabajar en entornos de Industria 4.0. Apoyo mis conocimientos técnicos en procesos de automatización, sistemas SCADA y supervisión de producción con C y Python, y desarrollo activamente con Java. Con mi competencia en Mantenimiento Predictivo, aspiro a agregar valor inmediato a los procesos de producción intensivos en tecnología.`,
-            skills_title: "Habilidades Técnicas",
-            topic_1: "Salud y Seguridad",
-            topic_2: "Gestión de Operaciones de Man.",
-            topic_3: "Programación",
-            topic_4: "Procesamiento de Imágenes",
-            topic_5: "Mantenimiento Predictivo",
-            topic_6: "Gestión de Materiales y Stock",
-            topic_7: "Automatización Robótica (RPA)",
-            topic_8: "SCADA",
-            topic_9: "Inteligencia Artificial",
-            topic_10: "Aprendizaje Automático",
-            topic_11: "Integración de Sistemas",
-            topic_12: "Sistemas de Manufactura Inteligente",
-            topic_13: "Recopilación y Análisis de Datos",
-            topic_14: "Hardware MES",
-            topic_15: "Estándares MES",
-            works_title: "Mis Trabajos",
-            btn_open: "Abrir Archivo",
-            contact_title: "Contacto",
-            footer_text: "© 2026 Muhammed Arda Sarı. Todos los derechos reservados."
+            about_text: `Candidato especializado en operaciones de campo e integración de TI en MES. Transformo mi experiencia de mantenimiento mecánico en análisis de datos con <strong>SQL y Python</strong>. Fundador de la <a href="https://uretimingelecegi.vercel.app/" target="_blank" class="cyber-link">Future of Manufacturing Society (FOT-M)</a>.`,
+            exp_title: "Experiencia",
+            exp_1_title: "Kadifeteks | Pasante (TI)",
+            exp_1_date: "Feb 2026 - Jun 2026",
+            exp_1_desc: "Seguimiento en tiempo real de datos de producción vía MES.",
+            exp_2_title: "Plastsonik Makina | Pasante",
+            exp_2_date: "Ago 2025 - Sep 2025",
+            exp_2_desc: "Montaje mecánico y cableado de paneles eléctricos.",
+            skills_title: "Competencias del Sistema",
+            topic_1: "Python, Java, C, SQL",
+            topic_2: "Mantenimiento Predictivo",
+            topic_3: "SCADA & MES",
+            topic_4: "Redes Industriales",
+            topic_5: "Procesamiento de Imágenes",
+            topic_6: "RPA",
+            topic_7: "IA",
+            topic_8: "PLC",
+            works_title: "Base de Datos",
+            btn_open: "[ Inspeccionar ]",
+            contact_title: "Puerto de Comunicación",
+            footer_text: "© 2026 Muhammed Arda Sarı. Sistema Activo."
         }
     };
 
@@ -190,10 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const options = {
-        threshold: 0.15 
-    };
-
+    // Görünürlük Animasyonları (Scroll)
+    const options = { threshold: 0.15 };
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -202,40 +217,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-
     const observer = new IntersectionObserver(revealCallback, options);
     
     document.querySelectorAll('.reveal').forEach(elem => {
         observer.observe(elem);
     });
 
-    const heroElems = [
-        document.querySelector('.profile-img-wrapper'),
-        document.querySelector('.hero-content h1'),
-        document.querySelector('.hero-content p'),
-        document.querySelector('.hero-buttons'),
-        document.querySelector('.scroll-down')
-    ];
-
-    heroElems.forEach((el, i) => {
-        if (el) { 
-            setTimeout(() => {
-                el.classList.add('active');
-            }, i * 200); 
-        }
-    });
-
+    // Navbar Scroll Efekti
     const navbar = document.querySelector('.navbar');
-    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(11, 15, 25, 0.95)';
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.5)';
-            navbar.style.borderBottom = '1px solid rgba(0, 210, 255, 0.2)'; 
+            navbar.style.background = 'rgba(3, 4, 7, 0.95)';
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.8)';
+            navbar.style.borderBottom = '1px solid rgba(0, 243, 255, 0.4)'; 
         } else {
-            navbar.style.background = 'rgba(11, 15, 25, 0.7)';
+            navbar.style.background = 'rgba(3, 4, 7, 0.8)';
             navbar.style.boxShadow = 'none';
-            navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.08)';
+            navbar.style.borderBottom = '1px solid rgba(0, 243, 255, 0.15)';
         }
     });
 });
