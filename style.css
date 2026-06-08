@@ -9,38 +9,54 @@ html {
 }
 
 :root {
-  /* Teknolojik Dark Mode Paleti */
-  --bg-main: #0b0f19;         /* Derin siber lacivert/siyah */
-  --bg-secondary: #111827;    /* Kart arka planları için hafif açık ton */
-  --accent-color: #00d2ff;    /* Teknoloji/Veri mavisi */
-  --accent-glow: rgba(0, 210, 255, 0.3);
-  --text-main: #e2e8f0;       /* Göz yormayan açık gri/beyaz */
-  --text-muted: #94a3b8;      /* Alt metinler için daha koyu gri */
-  --border-color: rgba(255, 255, 255, 0.08);
+  /* True Dark Cyberpunk Paleti */
+  --bg-dark: #030407;         
+  --bg-card: rgba(10, 15, 25, 0.6); 
+  --neon-cyan: #00f3ff;    
+  --neon-cyan-glow: rgba(0, 243, 255, 0.4);
+  --neon-green: #00ff66;
+  --text-main: #e2e8f0;       
+  --text-dim: #8892b0;      
+  --border-cyber: rgba(0, 243, 255, 0.15);
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--bg-main);
-  /* Hafif siber ağ (grid) arka plan deseni */
-  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-color: var(--bg-dark);
+  /* Teknolojik Grid Arka Plan */
+  background-image: 
+    linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
   color: var(--text-main);
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Özelleştirme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark); 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan); 
+  border-radius: 4px;
 }
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: auto;
 }
 
-/* --- NAVBAR (Glassmorphism Efekti) --- */
+/* --- NAVBAR --- */
 .navbar {
-  background: rgba(11, 15, 25, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  background: rgba(3, 4, 7, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-cyber);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -57,24 +73,20 @@ body {
 .lang-flags {
   display: flex;
   gap: 12px;
-  align-items: center;
 }
 
 .flag-btn {
-  width: 28px;
+  width: 25px;
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 0.3;
   transition: all 0.3s ease;
-  border-radius: 4px;
-  filter: grayscale(80%);
+  filter: grayscale(100%);
 }
 
-.flag-btn:hover, 
-.flag-btn.active {
+.flag-btn:hover, .flag-btn.active {
   opacity: 1;
   transform: scale(1.1);
-  filter: grayscale(0%);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  filter: grayscale(0%) drop-shadow(0 0 5px var(--neon-cyan));
 }
 
 .navbar nav ul {
@@ -87,47 +99,29 @@ body {
 .navbar nav ul li a {
   color: var(--text-main);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
-  position: relative;
-}
-
-/* Hover Altı Çizgi Efekti */
-.navbar nav ul li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -5px;
-  left: 0;
-  background-color: var(--accent-color);
-  transition: width 0.3s ease;
-}
-
-.navbar nav ul li a:hover::after {
-  width: 100%;
 }
 
 .navbar nav ul li a:hover {
-  color: var(--accent-color);
-  text-shadow: 0 0 8px var(--accent-glow);
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px var(--neon-cyan-glow);
 }
 
 .linkedin-nav a {
-  color: var(--text-main);
+  color: var(--text-dim);
 }
 .linkedin-nav a:hover {
-  color: #0077b5; 
-  text-shadow: 0 0 10px rgba(0, 119, 181, 0.5);
-  transform: scale(1.1);
+  color: #0077b5;
+  text-shadow: 0 0 10px rgba(0, 119, 181, 0.8);
 }
 
 /* --- HERO BÖLÜMÜ --- */
 .hero {
   position: relative;
-  padding: 160px 0 120px;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,183 +132,281 @@ body {
   position: relative;
   z-index: 2;
   max-width: 800px;
-  padding: 20px;
+}
+
+.profile-img-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
 }
 
 .profile-img {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid var(--accent-color);
-  box-shadow: 0 0 20px var(--accent-glow);
-  margin-bottom: 25px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  z-index: 2;
+  border: 2px solid var(--neon-cyan);
 }
 
-.profile-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 35px var(--accent-glow);
+/* Profil Foto Etrafındaki Dönen Siber Çember */
+.cyber-circle {
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  border-radius: 50%;
+  border: 1px dashed var(--neon-cyan);
+  animation: spin 10s linear infinite;
+  z-index: 1;
+  box-shadow: 0 0 20px var(--neon-cyan-glow);
 }
 
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Glitch Efekti */
+.glitch {
+  font-size: 3.5rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--text-main);
+  position: relative;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.hero-content p {
-  font-size: 1.15rem;
-  margin-bottom: 35px;
-  color: var(--text-muted);
-  font-weight: 300;
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--bg-dark);
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--neon-cyan);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); }
+  20% { clip-path: inset(60% 0 10% 0); }
+  40% { clip-path: inset(40% 0 50% 0); }
+  60% { clip-path: inset(80% 0 5% 0); }
+  80% { clip-path: inset(10% 0 70% 0); }
+  100% { clip-path: inset(30% 0 50% 0); }
+}
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); }
+  20% { clip-path: inset(30% 0 20% 0); }
+  40% { clip-path: inset(70% 0 10% 0); }
+  60% { clip-path: inset(20% 0 50% 0); }
+  80% { clip-path: inset(50% 0 30% 0); }
+  100% { clip-path: inset(5% 0 80% 0); }
+}
+
+.cyber-subtitle {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  color: var(--neon-cyan);
   margin-bottom: 40px;
+  min-height: 30px;
 }
 
-.btn {
+.cursor {
+  display: inline-block;
+  width: 10px;
+  background-color: var(--neon-cyan);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Siber Butonlar */
+.cyber-btn {
+  font-family: 'Fira Code', monospace;
   padding: 12px 30px;
-  background: rgba(0, 210, 255, 0.1);
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  border-radius: 4px;
+  background: rgba(0, 243, 255, 0.1);
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
   text-decoration: none;
-  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn:hover {
-  background: var(--accent-color);
-  color: var(--bg-main);
-  box-shadow: 0 0 15px var(--accent-glow);
+.cyber-btn:hover {
+  background: var(--neon-cyan);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px var(--neon-cyan-glow);
 }
 
-.btn-outline {
-  background: transparent;
-  border: 1px solid var(--text-muted);
+.cyber-btn.outline {
+  border-color: var(--text-dim);
   color: var(--text-main);
+  background: transparent;
 }
 
-.btn-outline:hover {
-  background: var(--text-main);
-  color: var(--bg-main);
-  border-color: var(--text-main);
+.cyber-btn.outline:hover {
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: inset 0 0 10px var(--neon-cyan-glow);
+  background: transparent;
 }
 
 .scroll-down a {
-  color: var(--text-muted);
-  font-size: 2rem;
+  color: var(--text-dim);
+  font-size: 1.5rem;
   animation: bounce 2s infinite;
-  transition: color 0.3s;
-}
-.scroll-down a:hover {
-  color: var(--accent-color);
+  display: block;
+  margin-top: 40px;
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(10px); }
-  60% { transform: translateY(5px); }
-}
-
-/* --- GENEL BÖLÜM AYARLARI --- */
+/* --- GENEL BÖLÜM YAPISI --- */
 .section {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 .section h2 {
-  font-size: 2.2rem;
-  text-align: center;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: var(--text-main);
-  font-weight: 600;
-  letter-spacing: 1px;
+  text-align: center;
 }
 
-.section hr {
-  width: 50px;
-  height: 3px;
-  background: var(--accent-color);
-  border: none;
-  margin: 0 auto 50px;
-  box-shadow: 0 0 10px var(--accent-glow);
+.cyber-hr {
+  width: 60px;
+  height: 2px;
+  background: var(--neon-cyan);
+  margin: 15px auto 50px;
+  box-shadow: 0 0 10px var(--neon-cyan-glow);
 }
 
 /* --- HAKKIMDA --- */
-.about {
-  background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-secondary) 100%);
-}
-
 .about-text {
   text-align: center;
   max-width: 850px;
   margin: 0 auto;
-  font-size: 1.05rem;
-  color: var(--text-muted);
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  background: var(--bg-card);
+  padding: 40px;
+  border: 1px solid var(--border-cyber);
+  border-left: 4px solid var(--neon-cyan);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+
 .about-text strong {
-  color: var(--text-main);
+  color: var(--neon-cyan);
   font-weight: 500;
 }
 
-/* --- TEKNİK YETKİNLİKLER (Siber Kartlar) --- */
-.topics {
-  background: var(--bg-secondary);
+.cyber-link {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--neon-cyan);
+  transition: all 0.3s;
+}
+.cyber-link:hover {
+  background: rgba(0, 243, 255, 0.1);
+  text-shadow: 0 0 8px var(--neon-cyan-glow);
 }
 
+/* --- DENEYİM (TIMELINE) --- */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  background-color: var(--border-cyber);
+  top: 0; bottom: 0; left: 20px;
+}
+
+.timeline-item {
+  padding: 20px 0 20px 60px;
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 15px; height: 15px;
+  background-color: var(--bg-dark);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 50%;
+  left: 13px; top: 25px;
+  z-index: 1;
+  box-shadow: 0 0 10px var(--neon-cyan-glow);
+}
+
+.timeline-content {
+  background: var(--bg-card);
+  padding: 25px;
+  border: 1px solid var(--border-cyber);
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+.timeline-content:hover {
+  border-color: var(--neon-cyan);
+  transform: translateX(10px);
+}
+
+.timeline-content h3 {
+  color: var(--text-main);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+.timeline-content .date {
+  font-family: 'Fira Code', monospace;
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* --- YETKİNLİKLER --- */
 .topics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  padding: 10px;
 }
 
 .topic-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-color);
-  padding: 20px 15px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyber);
+  padding: 20px;
   text-align: center;
-  border-radius: 8px;
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 80px;
-}
-
-.topic-card p {
-  font-weight: 500;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  margin: 0;
-  transition: color 0.3s;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: var(--text-dim);
 }
 
 .topic-card:hover {
-  background: rgba(0, 210, 255, 0.05);
-  border-color: var(--accent-color);
+  background: rgba(0, 243, 255, 0.05);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px var(--accent-glow);
-}
-
-.topic-card:hover p {
-  color: var(--accent-color);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 /* --- ÇALIŞMALARIM --- */
-.works {
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-main) 100%);
-}
-
 .works-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -322,10 +414,9 @@ body {
 }
 
 .work-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-color);
-  padding: 25px;
-  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyber);
+  padding: 30px 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -333,89 +424,88 @@ body {
 }
 
 .work-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px var(--neon-cyan-glow);
 }
 
 .work-card h3 {
   font-size: 1.05rem;
   color: var(--text-main);
-  margin-bottom: 20px;
-  line-height: 1.5;
+  margin-bottom: 25px;
   font-weight: 500;
 }
 
 .work-btn {
-  display: inline-block;
-  padding: 10px 0;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-main);
+  font-family: 'Fira Code', monospace;
+  color: var(--text-dim);
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  text-align: center;
-  border: 1px solid var(--border-color);
-  transition: all 0.3s;
+  font-size: 0.85rem;
+  transition: color 0.3s;
 }
 
 .work-btn:hover {
-  background: rgba(0, 210, 255, 0.1);
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+  color: var(--neon-green);
+  text-shadow: 0 0 8px rgba(0,255,102,0.5);
 }
 
 /* --- İLETİŞİM --- */
-.contact {
-  background: var(--bg-main);
+.cyber-contact-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-cyber);
+  border-left: 4px solid var(--neon-green);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: 'Fira Code', monospace;
 }
 
-.contact-details p {
-  font-size: 1.1rem;
+.cyber-contact-box p {
   margin: 15px 0;
-  color: var(--text-muted);
+  font-size: 1rem;
+  color: var(--text-dim);
 }
 
-.contact-details a {
+.cyber-contact-box p:first-child span {
+  color: var(--neon-green);
+  animation: blink 1.5s infinite;
+}
+
+.cyber-contact-box a {
   color: var(--text-main);
   text-decoration: none;
-  transition: color 0.3s;
   margin-left: 10px;
+  transition: color 0.3s;
 }
 
-.contact-details a:hover {
-  color: var(--accent-color);
-}
-
-.contact-details i {
-  color: var(--accent-color);
+.cyber-contact-box a:hover {
+  color: var(--neon-cyan);
 }
 
 /* --- FOOTER --- */
 .footer {
-  background: #070a10;
-  color: var(--text-muted);
   text-align: center;
-  padding: 25px 0;
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border-color);
+  padding: 30px 0;
+  border-top: 1px solid var(--border-cyber);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  background: var(--bg-dark);
 }
 
-/* --- ANİMASYONLAR --- */
+/* Animasyonlar */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
-
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
 }
-
 .delay-0 { transition-delay: 0s; }
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.3s; }
-.delay-4 { transition-delay: 0.4s; }
-.delay-5 { transition-delay: 0.5s; }
+.delay-3 { transition-delay: 0.2s; }
+.delay-4 { transition-delay: 0.3s; }
+.delay-5 { transition-delay: 0.4s; }
+.delay-6 { transition-delay: 0.5s; }
