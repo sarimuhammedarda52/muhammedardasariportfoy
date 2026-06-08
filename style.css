@@ -9,59 +9,55 @@ html {
 }
 
 :root {
-  /* True Dark Cyberpunk Paleti */
-  --bg-dark: #030407;         
-  --bg-card: rgba(10, 15, 25, 0.6); 
-  --neon-cyan: #00f3ff;    
-  --neon-cyan-glow: rgba(0, 243, 255, 0.4);
-  --neon-green: #00ff66;
-  --text-main: #e2e8f0;       
-  --text-dim: #8892b0;      
-  --border-cyber: rgba(0, 243, 255, 0.15);
+  /* Matrix & Cyberpunk Terminal Renkleri */
+  --bg-dark: #050505;         
+  --bg-panel: #0a0e17; 
+  --neon-cyan: #0ff;    
+  --neon-green: #0f0;
+  --text-main: #e0e0e0;       
+  --text-dim: #7a8a9e;      
+  --border-color: rgba(0, 255, 255, 0.2);
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   background-color: var(--bg-dark);
-  /* Teknolojik Grid Arka Plan */
-  background-image: 
-    linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center center;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Scrollbar Özelleştirme */
-::-webkit-scrollbar {
-  width: 8px;
+/* CRT Scanline Efekti (Eski Monitör Çizgileri) */
+.scanlines {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 3px 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.4;
 }
-::-webkit-scrollbar-track {
-  background: var(--bg-dark); 
-}
-::-webkit-scrollbar-thumb {
-  background: var(--neon-cyan); 
-  border-radius: 4px;
-}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--neon-cyan); }
 
 .container {
   width: 90%;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: auto;
 }
 
 /* --- NAVBAR --- */
 .navbar {
-  background: rgba(3, 4, 7, 0.8);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-cyber);
+  background: rgba(5, 5, 5, 0.9);
+  border-bottom: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 15px 0;
-  transition: all 0.3s ease;
+  font-family: 'Share Tech Mono', monospace;
 }
 
 .navbar .container {
@@ -70,68 +66,55 @@ body {
   align-items: center;
 }
 
-.lang-flags {
-  display: flex;
-  gap: 12px;
-}
-
+.lang-flags { display: flex; gap: 10px; }
 .flag-btn {
   width: 25px;
   cursor: pointer;
-  opacity: 0.3;
-  transition: all 0.3s ease;
-  filter: grayscale(100%);
+  opacity: 0.4;
+  filter: grayscale(100%) sepia(100%) hue-rotate(130deg); /* Siber yeşil filtre */
+  transition: all 0.3s;
 }
-
 .flag-btn:hover, .flag-btn.active {
   opacity: 1;
-  transform: scale(1.1);
-  filter: grayscale(0%) drop-shadow(0 0 5px var(--neon-cyan));
+  filter: none;
+  box-shadow: 0 0 8px var(--neon-cyan);
 }
 
 .navbar nav ul {
   list-style: none;
   display: flex;
-  gap: 25px;
-  align-items: center;
+  gap: 20px;
 }
 
 .navbar nav ul li a {
-  color: var(--text-main);
+  color: var(--text-dim);
   text-decoration: none;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.nav-num {
+  color: var(--neon-cyan);
+  font-size: 0.75rem;
+  margin-right: 3px;
 }
 
 .navbar nav ul li a:hover {
   color: var(--neon-cyan);
-  text-shadow: 0 0 8px var(--neon-cyan-glow);
+  text-shadow: 0 0 8px var(--neon-cyan);
 }
 
-.linkedin-nav a {
-  color: var(--text-dim);
-}
-.linkedin-nav a:hover {
-  color: #0077b5;
-  text-shadow: 0 0 10px rgba(0, 119, 181, 0.8);
-}
+.linkedin-nav a { color: var(--neon-cyan); }
+.linkedin-nav a:hover { text-shadow: 0 0 15px var(--neon-cyan); }
 
 /* --- HERO BÖLÜMÜ --- */
 .hero {
-  position: relative;
-  min-height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
+  background: radial-gradient(circle at center, #0a1128 0%, var(--bg-dark) 70%);
 }
 
 .profile-img-wrapper {
@@ -141,225 +124,166 @@ body {
 }
 
 .profile-img {
-  width: 180px;
-  height: 180px;
+  width: 160px; height: 160px;
   object-fit: cover;
   border-radius: 50%;
   position: relative;
   z-index: 2;
   border: 2px solid var(--neon-cyan);
+  filter: contrast(1.2) grayscale(0.2);
 }
 
-/* Profil Foto Etrafındaki Dönen Siber Çember */
 .cyber-circle {
   position: absolute;
-  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  top: -15px; left: -15px; right: -15px; bottom: -15px;
   border-radius: 50%;
   border: 1px dashed var(--neon-cyan);
-  animation: spin 10s linear infinite;
-  z-index: 1;
-  box-shadow: 0 0 20px var(--neon-cyan-glow);
+  animation: spin 8s linear infinite;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
-@keyframes spin {
-  100% { transform: rotate(360deg); }
-}
-
-/* Glitch Efekti */
-.glitch {
-  font-size: 3.5rem;
-  font-weight: 700;
-  position: relative;
-  color: white;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.glitch::before, .glitch::after {
-  content: attr(data-text);
+.cyber-circle-2 {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: var(--bg-dark);
+  top: -30px; left: -30px; right: -30px; bottom: -30px;
+  border-radius: 50%;
+  border-top: 2px solid var(--neon-green);
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  animation: spin-reverse 5s linear infinite;
 }
 
-.glitch::before {
-  left: 2px;
-  text-shadow: -2px 0 red;
-  animation: glitch-anim-1 2s infinite linear alternate-reverse;
-}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
 
-.glitch::after {
-  left: -2px;
-  text-shadow: -2px 0 var(--neon-cyan);
-  animation: glitch-anim-2 3s infinite linear alternate-reverse;
-}
-
-@keyframes glitch-anim-1 {
-  0% { clip-path: inset(20% 0 80% 0); }
-  20% { clip-path: inset(60% 0 10% 0); }
-  40% { clip-path: inset(40% 0 50% 0); }
-  60% { clip-path: inset(80% 0 5% 0); }
-  80% { clip-path: inset(10% 0 70% 0); }
-  100% { clip-path: inset(30% 0 50% 0); }
-}
-@keyframes glitch-anim-2 {
-  0% { clip-path: inset(10% 0 60% 0); }
-  20% { clip-path: inset(30% 0 20% 0); }
-  40% { clip-path: inset(70% 0 10% 0); }
-  60% { clip-path: inset(20% 0 50% 0); }
-  80% { clip-path: inset(50% 0 30% 0); }
-  100% { clip-path: inset(5% 0 80% 0); }
+.glitch {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3.5rem;
+  color: #fff;
+  position: relative;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 0px var(--neon-cyan), -2px -2px 0px #ff00ff;
 }
 
 .cyber-subtitle {
-  font-family: 'Fira Code', monospace;
-  font-size: 1.1rem;
-  color: var(--neon-cyan);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  color: var(--neon-green);
   margin-bottom: 40px;
   min-height: 30px;
+  text-shadow: 0 0 5px var(--neon-green);
 }
 
 .cursor {
   display: inline-block;
-  width: 10px;
-  background-color: var(--neon-cyan);
+  width: 12px; height: 20px;
+  background-color: var(--neon-green);
+  vertical-align: middle;
   animation: blink 1s step-end infinite;
 }
-
 @keyframes blink { 50% { opacity: 0; } }
 
-/* Siber Butonlar */
 .cyber-btn {
-  font-family: 'Fira Code', monospace;
-  padding: 12px 30px;
-  background: rgba(0, 243, 255, 0.1);
+  font-family: 'Share Tech Mono', monospace;
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 0 10px;
+  background: rgba(0, 255, 255, 0.1);
   color: var(--neon-cyan);
   border: 1px solid var(--neon-cyan);
   text-decoration: none;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.1);
 }
 
 .cyber-btn:hover {
   background: var(--neon-cyan);
-  color: var(--bg-dark);
-  box-shadow: 0 0 20px var(--neon-cyan-glow);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-cyan);
 }
 
 .cyber-btn.outline {
-  border-color: var(--text-dim);
-  color: var(--text-main);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
   background: transparent;
+  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
 }
-
 .cyber-btn.outline:hover {
-  border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
-  box-shadow: inset 0 0 10px var(--neon-cyan-glow);
-  background: transparent;
+  background: var(--neon-green);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-green);
 }
 
-.scroll-down a {
-  color: var(--text-dim);
-  font-size: 1.5rem;
-  animation: bounce 2s infinite;
-  display: block;
-  margin-top: 40px;
-}
+/* --- BAŞLIKLAR VE BÖLÜMLER --- */
+.section { padding: 90px 0; }
 
-/* --- GENEL BÖLÜM YAPISI --- */
-.section {
-  padding: 100px 0;
-}
-
-.section h2 {
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+.cyber-heading {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2.2rem;
   color: var(--text-main);
-  text-align: center;
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
 }
 
 .cyber-hr {
-  width: 60px;
-  height: 2px;
-  background: var(--neon-cyan);
-  margin: 15px auto 50px;
-  box-shadow: 0 0 10px var(--neon-cyan-glow);
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--neon-cyan) 0%, transparent 80%);
+  margin: 10px 0 40px;
+  box-shadow: 0 0 5px var(--neon-cyan);
 }
 
 /* --- HAKKIMDA --- */
 .about-text {
-  text-align: center;
-  max-width: 850px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  color: var(--text-dim);
-  background: var(--bg-card);
-  padding: 40px;
-  border: 1px solid var(--border-cyber);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
   border-left: 4px solid var(--neon-cyan);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  padding: 30px;
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  box-shadow: 5px 5px 0px rgba(0, 255, 255, 0.1);
 }
 
-.about-text strong {
-  color: var(--neon-cyan);
-  font-weight: 500;
+.highlight {
+  color: var(--neon-green);
+  font-family: 'Share Tech Mono', monospace;
 }
 
 .cyber-link {
   color: var(--neon-cyan);
   text-decoration: none;
   border-bottom: 1px dashed var(--neon-cyan);
-  transition: all 0.3s;
 }
 .cyber-link:hover {
-  background: rgba(0, 243, 255, 0.1);
-  text-shadow: 0 0 8px var(--neon-cyan-glow);
+  background: var(--neon-cyan);
+  color: #000;
 }
 
-/* --- DENEYİM (TIMELINE) --- */
+/* --- DENEYİM TIMELINE --- */
 .timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 1px;
-  background-color: var(--border-cyber);
-  top: 0; bottom: 0; left: 20px;
+  border-left: 2px solid var(--border-color);
+  padding-left: 30px;
+  margin-left: 20px;
 }
 
 .timeline-item {
-  padding: 20px 0 20px 60px;
   position: relative;
+  margin-bottom: 40px;
 }
 
 .timeline-dot {
   position: absolute;
-  width: 15px; height: 15px;
-  background-color: var(--bg-dark);
+  left: -39px; top: 0;
+  width: 16px; height: 16px;
+  background: var(--bg-dark);
   border: 2px solid var(--neon-cyan);
-  border-radius: 50%;
-  left: 13px; top: 25px;
-  z-index: 1;
-  box-shadow: 0 0 10px var(--neon-cyan-glow);
+  box-shadow: 0 0 10px var(--neon-cyan);
 }
 
 .timeline-content {
-  background: var(--bg-card);
-  padding: 25px;
-  border: 1px solid var(--border-cyber);
-  border-radius: 4px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  padding: 20px;
   transition: transform 0.3s;
 }
 .timeline-content:hover {
@@ -367,145 +291,147 @@ body {
   transform: translateX(10px);
 }
 
-.timeline-content h3 {
-  color: var(--text-main);
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
 .timeline-content .date {
-  font-family: 'Fira Code', monospace;
-  color: var(--neon-cyan);
-  font-size: 0.85rem;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-green);
+  font-size: 0.9rem;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-/* --- YETKİNLİKLER --- */
+.timeline-content h3 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+/* --- MODÜLLER (Yetkinlikler) --- */
 .topics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
 }
 
 .topic-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-cyber);
-  padding: 20px;
+  background: var(--bg-panel);
+  border: 1px solid rgba(0, 255, 0, 0.2);
+  padding: 20px 10px;
   text-align: center;
-  transition: all 0.3s ease;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
   color: var(--text-dim);
+  cursor: crosshair;
+  transition: all 0.2s;
 }
 
 .topic-card:hover {
-  background: rgba(0, 243, 255, 0.05);
-  border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  background: rgba(0, 255, 0, 0.1);
+  border-color: var(--neon-green);
+  color: var(--neon-green);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
 }
 
-/* --- ÇALIŞMALARIM --- */
+/* --- VERİTABANI (Çalışmalarım) --- */
 .works-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  gap: 20px;
 }
 
 .work-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-cyber);
-  padding: 30px 25px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.3s ease;
-}
-
-.work-card:hover {
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 15px var(--neon-cyan-glow);
 }
 
 .work-card h3 {
-  font-size: 1.05rem;
-  color: var(--text-main);
-  margin-bottom: 25px;
-  font-weight: 500;
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-cyan);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
 }
 
 .work-btn {
-  font-family: 'Fira Code', monospace;
+  font-family: 'Share Tech Mono', monospace;
   color: var(--text-dim);
   text-decoration: none;
   font-size: 0.85rem;
-  transition: color 0.3s;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 10px;
+  transition: all 0.3s;
 }
 
 .work-btn:hover {
   color: var(--neon-green);
-  text-shadow: 0 0 8px rgba(0,255,102,0.5);
+  border-top-color: var(--neon-green);
 }
 
-/* --- İLETİŞİM --- */
+/* --- İLETİŞİM TERMINALİ --- */
 .cyber-contact-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-cyber);
-  border-left: 4px solid var(--neon-green);
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
-  font-family: 'Fira Code', monospace;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Share Tech Mono', monospace;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
-.cyber-contact-box p {
-  margin: 15px 0;
-  font-size: 1rem;
-  color: var(--text-dim);
+.terminal-header {
+  background: #1a1a1a;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
 }
 
-.cyber-contact-box p:first-child span {
-  color: var(--neon-green);
-  animation: blink 1.5s infinite;
+.dot {
+  width: 12px; height: 12px; border-radius: 50%; margin-right: 8px;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.terminal-header .title {
+  color: #888; font-size: 0.9rem; margin-left: 10px;
 }
 
-.cyber-contact-box a {
-  color: var(--text-main);
-  text-decoration: none;
-  margin-left: 10px;
-  transition: color 0.3s;
+.terminal-body {
+  padding: 20px;
+  color: #ddd;
 }
 
-.cyber-contact-box a:hover {
-  color: var(--neon-cyan);
+.terminal-body p { margin-bottom: 10px; }
+.prompt { color: var(--neon-green); margin-right: 10px; }
+.success { color: var(--neon-cyan); }
+
+.terminal-body a {
+  color: #fff; text-decoration: none; border-bottom: 1px solid #555;
 }
+.terminal-body a:hover { color: var(--neon-cyan); border-color: var(--neon-cyan); }
 
 /* --- FOOTER --- */
 .footer {
   text-align: center;
-  padding: 30px 0;
-  border-top: 1px solid var(--border-cyber);
-  font-family: 'Fira Code', monospace;
-  font-size: 0.8rem;
-  color: var(--text-dim);
-  background: var(--bg-dark);
+  padding: 20px 0;
+  border-top: 1px solid #111;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: #555;
+  background: #000;
 }
 
-/* Animasyonlar */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Scroll Animasyonları */
+.reveal { opacity: 0; transform: translateY(20px); transition: all 0.5s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 .delay-0 { transition-delay: 0s; }
 .delay-1 { transition-delay: 0.1s; }
 .delay-2 { transition-delay: 0.2s; }
-.delay-3 { transition-delay: 0.2s; }
-.delay-4 { transition-delay: 0.3s; }
-.delay-5 { transition-delay: 0.4s; }
-.delay-6 { transition-delay: 0.5s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
